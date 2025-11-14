@@ -50,7 +50,7 @@ class HiAgentDemoServer:
         @self.app.route('/')
         def index():
             """主页"""
-            return send_from_directory(self.app.static_folder, 'web_demo.html')
+            return send_from_directory('.', 'web_demo.html')
         
         @self.app.route('/api/health')
         def health_check():

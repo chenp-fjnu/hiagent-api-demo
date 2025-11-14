@@ -1,0 +1,90 @@
+# 增强版Git自动化系统配置文件
+
+# 文件监控配置
+monitoring:
+  # 监控目录（相对于当前目录）
+  watch_directory: "."
+  # 是否递归监控子目录
+  recursive: true
+  # 监控的文件类型（* 表示所有文件）
+  file_types: ["*"]
+  # 忽略文件/目录模式
+  ignore_patterns:
+    - "*.pyc"          # Python编译文件
+    - "__pycache__/*"  # Python缓存目录
+    - ".git/*"         # Git目录
+    - "*.log"          # 日志文件
+    - ".DS_Store"      # macOS系统文件
+    - "node_modules/*" # Node.js依赖目录
+    - ".venv/*"        # 虚拟环境
+    - "venv/*"
+    - "*.tmp"          # 临时文件
+    - "*.temp"
+    - ".idea/*"        # PyCharm配置
+    - ".vscode/*"      # VSCode配置
+    - "enhanced_git_*" # 本系统文件
+    - "*.swp"          # Vim交换文件
+    - "*.swo"
+    - ".env"           # 环境变量文件
+    - ".env.*"
+    - "config.local.*" # 本地配置文件
+    - "*.db"           # 数据库文件
+    - "*.sqlite"
+    - ".cache/*"       # 缓存目录
+    - "*.pid"          # PID文件
+    - ".coverage"      # 测试覆盖率文件
+  # 最小文件年龄（秒），避免监控临时文件
+  min_file_age: 1
+  # 批处理大小，用于性能优化
+  batch_size: 10
+
+# 提交消息生成配置
+commit_generation:
+  # 是否启用智能提交消息
+  enabled: true
+  # 是否自动生成提交消息
+  auto_generate: true
+  # 是否包含时间戳
+  include_timestamp: true
+  # 最大消息长度
+  max_message_length: 100
+  # 是否分组相似变更
+  group_similar_changes: true
+
+# GitHub认证配置
+github_auth:
+  # 认证方式：token 或 ssh
+  auth_method: "token"
+  # Personal Access Token文件路径
+  token_file: ".github_token"
+  # SSH密钥路径
+  ssh_key_path: "~/.ssh/id_rsa"
+
+# 冲突处理配置
+conflict_handling:
+  # 是否启用冲突预防
+  enabled: true
+  # 最大重试次数
+  max_retry_attempts: 3
+  # 重试延迟（秒）
+  retry_delay: 2
+  # 是否自动解决冲突
+  auto_resolve: true
+
+# 调度配置
+scheduling:
+  # 提交延迟（秒），避免频繁提交
+  commit_delay: 5
+  # 每小时最大提交数
+  max_commits_per_hour: 60
+  # 是否启用频率限制
+  enable_rate_limiting: true
+
+# 目标分支
+target_branch: "main"
+
+# 是否自动推送到远程仓库
+auto_push: true
+
+# 调试模式
+debug: false

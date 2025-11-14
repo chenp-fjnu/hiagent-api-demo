@@ -1,0 +1,19 @@
+# 增强版Git自动化系统依赖包
+
+# 文件监控核心库
+watchdog>=3.0.0
+
+# YAML配置文件支持
+PyYAML>=6.0
+
+# 配置文件处理
+python-dotenv>=1.0.0
+
+# Git操作增强
+GitPython>=3.1.0
+
+# 可选依赖（如果需要高级功能）
+# requests>=2.28.0          # 用于GitHub API调用
+# colorama>=0.4.5          # 彩色终端输出
+# rich>=12.0.0             # 富文本输出
+# psutil>=5.9.0            # 系统监控
