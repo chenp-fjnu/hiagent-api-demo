@@ -1,0 +1,44 @@
+{
+  "watch_directory": ".",
+  "commit_delay": 5,
+  "max_files_per_commit": 10,
+  "commit_message_template": "自动提交 {timestamp} - {files_count} 个文件",
+  "exclude_patterns": [
+    "*.pyc",
+    "__pycache__/*",
+    ".git/*",
+    "*.log",
+    ".DS_Store",
+    "node_modules/*",
+    ".venv/*",
+    "venv/*",
+    "*.tmp",
+    "*.temp",
+    ".idea/*",
+    ".vscode/*",
+    "auto_commit_*",
+    "*.swp",
+    "*.swo"
+  ],
+  "include_patterns": [
+    "*.py",
+    "*.js",
+    "*.html",
+    "*.css",
+    "*.md",
+    "*.txt",
+    "*.json",
+    "*.yml",
+    "*.yaml",
+    "*.xml",
+    "*.sql",
+    "*.sh"
+  ],
+  "enable_branch_check": true,
+  "allowed_branches": [
+    "main",
+    "master",
+    "develop"
+  ],
+  "max_commit_message_length": 100
+}
