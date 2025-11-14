@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiAgent API Demo</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>HiAgent API Demo</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="configBtn" class="btn btn-secondary">
+                        <i class="fas fa-cog"></i>
+                        配置
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <i class="fas fa-trash"></i>
+                        清空
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="status-item">
+                <i class="fas fa-circle status-dot" id="connectionStatus"></i>
+                <span id="statusText">未连接</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-robot"></i>
+                <span id="agentInfo">请配置Agent ID</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-clock"></i>
+                <span id="timestamp"></span>
+            </div>
+        </div>
+
+        <!-- 聊天界面 -->
+        <main class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message welcome-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <h3>欢迎使用HiAgent API Demo</h3>
+                        <p>这是一个演示HiAgent接口调用的交互式界面。</p>
+                        <p>请先在配置中设置您的API密钥和Agent ID，然后开始对话。</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 输入区域 -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="输入您的消息..." 
+                    rows="1"
+                    maxlength="1000"
+                ></textarea>
+                <button id="sendBtn" class="btn btn-primary" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                    发送
+                </button>
+            </div>
+            <div class="input-footer">
+                <span class="char-count">0/1000</span>
+                <span class="input-hint">按 Enter 发送，Shift+Enter 换行</span>
+            </div>
+        </div>
+
+        <!-- 示例问题 -->
+        <div class="examples-container">
+            <h4>快速开始</h4>
+            <div class="examples-grid">
+                <button class="example-btn" data-message="你好，请介绍一下你自己">
+                    你好，请介绍一下你自己
+                </button>
+                <button class="example-btn" data-message="你能帮我做什么？">
+                    你能帮我做什么？
+                </button>
+                <button class="example-btn" data-message="请解释一下人工智能的概念">
+                    请解释一下人工智能的概念
+                </button>
+                <button class="example-btn" data-message="今天天气怎么样？">
+                    今天天气怎么样？
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 配置模态框 -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-cog"></i> 配置设置</h2>
+                <button class="modal-close" id="configClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="configForm">
+                    <div class="form-group">
+                        <label for="apiBaseUrl">API Base URL</label>
+                        <input type="url" id="apiBaseUrl" placeholder="https://api.hiagent.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="apiKey">API Key</label>
+                        <input type="password" id="apiKey" placeholder="输入您的API密钥">
+                    </div>
+                    <div class="form-group">
+                        <label for="agentId">Agent ID</label>
+                        <input type="text" id="agentId" placeholder="输入智能体ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="userId">User ID</label>
+                        <input type="text" id="userId" placeholder="输入用户ID（可选）">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="streamingMode">
+                            启用流式响应
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="testConnection" class="btn btn-secondary">
+                            <i class="fas fa-wifi"></i>
+                            测试连接
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            保存配置
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载指示器 -->
+    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+        <div class="spinner"></div>
+        <span>正在发送消息...</span>
+    </div>
+
+    <!-- 通知 -->
+    <div id="notification" class="notification" style="display: none;">
+        <span id="notificationMessage"></span>
+        <button id="notificationClose">&times;</button>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
