@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "data": {
+    "commit_message": "feat: 添加用户认证功能",
+    "analysis": "本次修改涉及用户认证模块，包括登录、注册和权限验证功能",
+    "change_type": "feature",
+    "impact_level": "high",
+    "suggestions": [
+      "添加单元测试覆盖认证逻辑",
+      "更新API文档",
+      "添加集成测试"
+    ],
+    "files_impacted": [
+      "src/auth/login.py",
+      "src/auth/register.py",
+      "src/auth/permissions.py"
+    ],
+    "complexity_score": 7,
+    "estimated_review_time": "15-20分钟"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "operation_logged": true,
+    "analysis_id": "op_12345",
+    "metrics": {
+      "processing_time": "2.3秒",
+      "api_calls_made": 3,
+      "cache_hits": 1
+    }
+  }
+}

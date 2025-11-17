@@ -1,0 +1,13 @@
+api:
+  base_url: http://14.103.248.148
+  max_retries: 5
+  retry_delay: 2
+  timeout: 60
+auth:
+  token: advanced-token
+  type: bearer
+security:
+  rate_limit:
+    enabled: true
+    requests_per_minute: 200
+  verify_ssl: true

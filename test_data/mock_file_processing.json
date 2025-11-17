@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "data": {
+    "analysis": "文件修改涉及核心业务逻辑，建议进行充分测试",
+    "impact": "medium",
+    "risk_level": "low",
+    "recommendations": [
+      "添加边界条件测试",
+      "考虑性能优化",
+      "检查并发安全性"
+    ],
+    "code_quality_score": 8.5,
+    "maintainability_index": "good"
+  }
+}

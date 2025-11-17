@@ -1,0 +1,6 @@
+api:
+  base_url: http://14.103.248.148
+  timeout: 30
+auth:
+  token: test-token
+  type: bearer
